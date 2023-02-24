@@ -1,7 +1,26 @@
-<h1>List here <h1>
-<ul>
+
+<div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(https://images.unsplash.com/photo-1485846234645-a62644f84728?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2918&q=80);">
+  <div class="container">
+    <h1>Save your favorite movies </h1>
+  <p> All kind of movies</p>
+  </div>
+</div>
+
+  <br>
+  <div class="position-relative">
+        <div class="position-absolute bottom-0 start-50 translate-middle-x">
+   <%= link_to "Create your movie list", new_list_path, class: "btn btn-flat" %>
+     </div>
+  </div>
+
+
+<h2>My lists</h2>
+<div class="cards">
   <% @lists.each do |list| %>
-    <li><%= link_to list.name, list_path(list)%>
-    </li>
+   <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://i.pinimg.com/564x/49/fa/1e/49fa1eefacc39447df2dc8dae0873707.jpg)">
+   <%= list.name %>
+  </div>
+
+   <%# <h2><%=link_to list.name, list_path(list)%></h2>
   <% end %>
-</ul>
+</div>

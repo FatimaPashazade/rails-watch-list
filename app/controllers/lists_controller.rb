@@ -22,7 +22,6 @@ class ListsController < ApplicationController
     end
   end
 
-
   private
 
   def list_params
