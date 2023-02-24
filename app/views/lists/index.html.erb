@@ -6,21 +6,21 @@
   </div>
 </div>
 
-  <br>
-  <div class="position-relative">
-        <div class="position-absolute bottom-0 start-50 translate-middle-x">
-   <%= link_to "Create your movie list", new_list_path, class: "btn btn-flat" %>
-     </div>
+<div class="container py-5">
+  <div class="d-flex align-items-center justify-content-between mb-3">
+    <h3 class="mb-0">My Lists</h3>
+    <%= link_to "Create list", new_list_path, class: "btn btn-outline-dark" %>
   </div>
 
-
-<h2>My lists</h2>
-<div class="cards">
-  <% @lists.each do |list| %>
-   <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://i.pinimg.com/564x/49/fa/1e/49fa1eefacc39447df2dc8dae0873707.jpg)">
-   <%= list.name %>
+  <div class="row">
+    <% @lists.each do |list| %>
+      <div class="co-12 col-sm-6 col-md-4 mb-3">
+        <%= link_to list_path(list), class:"text-decoration-none" do %>
+          <div class="card-category" data-aos="zoom-in" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(<%= list.photo.attached? ? cl_image_path(list.photo.key) : asset_path('list_background.jpg') %>)">
+            <%= list.name %>
+          </div>
+        <% end %>
+      </div>
+    <% end %>
   </div>
-
-   <%# <h2><%=link_to list.name, list_path(list)%></h2>
-  <% end %>
 </div>
